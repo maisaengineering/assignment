@@ -1,0 +1,27 @@
+<h1>Listing items of <%= @todo_list.name %></h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Checked</th>
+    <th>Todo list</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @items.each do |item| %>
+  <tr>
+    <td><%= item.name %></td>
+    <td><%= item.checked? ? 'yes' : 'no' %></td>
+    <td><%= item.todo_list.name%></td>
+    <td><%= link_to 'Show', item %></td>
+    <td><%= link_to 'Edit', edit_todo_list_item_path(@todo_list,item) %></td>
+    <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Item', todo_list_new_item_path(@todo_list) %>

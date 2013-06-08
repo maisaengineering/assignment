@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+
+<p>
+  <b>Todo:</b>
+  <%= @item.todo_list.name %>
+</p>
+
+
+<p>
+  <b>Name:</b>
+  <%= @item.name %>
+</p>
+
+<p>
+  <b>Checked:</b>
+  <%= @item.checked? ? 'Yes' : 'No' %>
+</p>
+
+<p>
+
+
+
+<%= link_to 'Edit', edit_todo_list_item_path(@item.todo_list,@item) %> |
+<%= link_to 'Back', todo_list_path(@item.todo_list) %>
+

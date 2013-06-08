@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @todo_list.name %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @todo_list.description %>
+</p>
+
+
+<p>
+  <b>Total Items:</b>
+  <%=link_to_unless(@todo_list.items_count.eql?(0) ,@todo_list.items_count,todo_list_items_path(@todo_list)) %>
+</p>
+
+<p>
+
+
+</p>
+
+<strong>Create Item:</strong>
+<%= render partial: "items/form", locals: {todo: @todo_list} %>
+
+<%= link_to 'Edit', edit_todo_list_path(@todo_list) %> |
+<%= link_to 'Back', todo_lists_path %>
+
